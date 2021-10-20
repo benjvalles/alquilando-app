@@ -1,0 +1,25 @@
+{
+  "cwd": "/home/benjamin/Proyectos/alquilando(app)",
+  "type": [
+    "capacitor"
+  ],
+  "name": "Alquilando",
+  "framework": "svelte",
+  "template": "split-view",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#0a8096",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": true
+  },
+  "customBuild": false,
+  "pkg": "com.benja.alquilando",
+  "capacitor": {
+    "platforms": [
+      "android"
+    ]
+  }
+}
