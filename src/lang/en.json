@@ -1,0 +1,24 @@
+{
+	"loginScreen": {
+		"tu_email": "Your email",
+		"tu_password": "Your password",
+		"login": "Sign In",
+		"condition": "By using this application you agree to the terms and conditions of use. More information at <a href='https://www.alquilando.app/terms' class='external' target='_blank'>www.alquilando.app/terms</a>.",
+		"401": "Not authorized to use the API",
+		"422": "Email and password required",
+		"404": "User with these credentials does not exist"
+	},
+	"tenantScreen": {
+		"nuevo": "New tenant",
+    "nuevo_blockTitle": "You are going to invite a tenant to join your group.",
+    "nuevo_parrafo1": "An email will be sent to you with instructions on how to join your tenant group.",
+    "nuevo_parrafo2": "Once he accepts the invitation, he will join your group: "
+	},
+	"global": {
+		"inquilinos": "Tenants",
+		"ultimosMov": "Latest movements",
+		"email": "Email",
+    "enviar": "Send",
+		"401": "Authentication is required"
+	}
+}

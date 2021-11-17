@@ -84,3 +84,13 @@
   content: '';
   z-index: 6000;
 }
+
+.toast.danger {
+  --f7-toast-font-size: 16px;
+  color: var(--f7-color-red-shade);
+}
+
+.toast-content {
+  justify-content: center !important;
+}
+

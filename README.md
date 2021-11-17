@@ -9,6 +9,19 @@ Luego instalamos pnpm para un mejor manejo de las dependencias con `npm install 
 Dentro de la carpeta del proyecto, actualizamos las dependencias con `pnpm install`.
 
 
+## Variables de entorno
+Creamos el archivo `.env` completamos las variables con nuestro ACCESS_KEY
+
+```
+VITE_ACCESS_KEY="sandbox"
+```
+## Servidor Local
+```
+npm run dev
+pnpm run dev
+```
+
+
 ## Framework7 CLI Options
 
 Framework7 app created with following options:

@@ -1,0 +1,24 @@
+{
+	"loginScreen": {
+		"tu_email": "Tu email",
+		"tu_password": "Tu clave de acceso",
+		"login": "Iniciar sesión",
+		"condition": "Al utilizar esta aplicación aceptas los términos y condiciones de uso. Mas información en <a href='https://www.alquilando.app/terms' class='external' target='_blank'>www.alquilando.app/terms</a>.",
+		"401": "No autorizado para usar la API",
+		"422": "Email y contraseña obligatorios",
+		"404": "El usuario con estas credenciales no existe"
+	},
+	"tenantScreen": {
+		"nuevo": "Nuevo inquilino",
+    "nuevo_blockTitle": "Vas a invitar a un inquilino a unirse a tu grupo.",
+    "nuevo_parrafo1": "Se le mandará un correo con las instrucciones para unirse a tu grupo de inquilinos ",
+    "nuevo_parrafo2": "Una vez que acepte la invitación se unirá a su grupo: "
+	},
+	"global": {
+		"inquilinos": "Inquilinos",
+		"ultimosMov": "Últimos movimientos",
+		"email": "Correo electrónico",
+    "enviar": "Enviar",
+		"401": "Es necesario autentificarse"
+	}
+}

@@ -52,7 +52,7 @@
     </View>
   </Popup>
 
-  <LoginScreen id="my-login-screen">
+  <LoginScreen id="login-screen">
     <View>
       <Page loginScreen>
         <LoginScreenTitle>Login</LoginScreenTitle>
@@ -60,26 +60,28 @@
           <ListInput
             type="text"
             name="username"
-            placeholder="Your username"
-            bind:value={username}
+            placeholder={$_('loginScreen.tu_email')}
+            bind:value={email}
           />
           <ListInput
             type="password"
             name="password"
-            placeholder="Your password"
+            placeholder={ $_('loginScreen.tu_password') }
             bind:value={password}
           />
         </List>
         <List>
-          <ListButton title="Sign In" onClick={() => alertLoginData()} />
+          <ListButton title={ $_('loginScreen.login') } onClick={() => login()} />
         </List>
         <BlockFooter>
-          Some text about login information.<br />Click "Sign In" to close Login Screen
+          { @html $_('loginScreen.condition') }
         </BlockFooter>
       </Page>
     </View>
   </LoginScreen>
 </App>
+
+
 <script>
   import { onMount } from 'svelte';
   import { getDevice }  from 'framework7/lite-bundle';
@@ -110,6 +112,8 @@
   import capacitorApp from '../js/capacitor-app';
   import routes from '../js/routes';
   import store from '../js/store';
+  import user from '../store/user';
+  import { _, setup } from '../services/i18n';
 
   const device = getDevice();
   // Framework7 Parameters
@@ -134,16 +138,59 @@
       iosOverlaysWebView: true,
       androidOverlaysWebView: false,
     },
+    toast: {
+			closeTimeout: 3500,
+			position: "bottom",
+			horizontalPosition: "center",
+			on: {
+				closed: toast => {
+					queueMicrotask(() => toast.destroy());
+					//toast.$el.remove();
+				}
+			}
+		},
+		notification: {
+			title: 'Alquilando',
+			closeTimeout: 3500,
+			closeOnCLick: true,
+			on: {
+				closed: noti => {
+					queueMicrotask(() => noti.destroy())
+				}
+			}
+		},
+		dialog: {
+			title: 'Alquilando',
+			buttonOk: 'Ok',
+			buttonCancel: 'Cancelar',
+			preloaderTitle: 'Cargando...',
+			progressTitle: 'Un momento...'
+		}
   };
-  // Login screen demo data
-  let username = '';
+  // Login screen data
+  let email = '';
   let password = '';
 
-  function alertLoginData() {
-    f7.dialog.alert('Username: ' + username + '<br>Password: ' + password, () => {
+  setup();
+
+  function login() {
+    f7.preloader.show();
+    user.login({
+      email,
+      password
+    }).then(r => {
       f7.loginScreen.close();
-    });
+    }).catch(err => {
+      console.info(err);
+      f7.toast.create({
+        cssClass: 'danger',
+        text: $_('loginScreen.' + err.error)
+      }).open();
+    }).finally(() => f7.preloader.hide());
+    /* f7.dialog.alert('Username: ' + email + '<br>Password: ' + password, () => {
+    }); */
   }
+
   onMount(() => {
     f7ready(() => {
 
@@ -152,6 +199,20 @@
         capacitorApp.init(f7);
       }
       // Call F7 APIs here
+      window.f7 = f7;
+      window.user = user;
+      window._ = _;
+      user.subscribe(val => {
+        console.info("SUBSCRITO", val);
+        if (!val.token) {
+          password = '';
+          queueMicrotask(() => f7.loginScreen.open("#login-screen"));
+        }
+        else {
+          email = val.email;
+          password = val.password;
+        }
+      });
     });
-  })
+  });
 </script>

@@ -15,6 +15,10 @@ var routes = [
     component: HomePage,
   },
   {
+    path: '/new/t',
+    asyncComponent: () => import('../pages/new-tenant.svelte')
+  },
+  {
     path: '/about/',
     component: AboutPage,
   },
