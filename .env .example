@@ -1,0 +1,3 @@
+// Go to https://www.alquilando.app/api to get your API KEY
+VITE_ACCESS_KEY=""
+VITE_API_SERVER="http://alquilando.app/api"

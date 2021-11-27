@@ -1,57 +1,13 @@
 # Alquilando
 
-This repository shows how to create an application using the Alquilando.app REST API.
-
-Primero creamos una aplicación usando framework7 con el comando `npx framework7-cli create --ui`.
-
-Luego instalamos pnpm para un mejor manejo de las dependencias con `npm install -g pnpm`.
-
-Dentro de la carpeta del proyecto, actualizamos las dependencias con `pnpm install`.
+Rename the file `.env.example` and configure it with our ACCESS_KEY. If you don't have it, get it from the [alquilando.app web site][home].
 
 
-## Variables de entorno
-Creamos el archivo `.env` completamos las variables con nuestro ACCESS_KEY
+## Environment Variables
+Rename the file `.env.example` and configure it with our ACCESS_KEY
 
 ```
-VITE_ACCESS_KEY="sandbox"
-```
-## Servidor Local
-```
-npm run dev
-pnpm run dev
-```
-
-
-## Framework7 CLI Options
-
-Framework7 app created with following options:
-
-```
-{
-  "cwd": "/home/benjamin/Proyectos/alquilando(app)",
-  "type": [
-    "capacitor"
-  ],
-  "name": "Alquilando",
-  "framework": "svelte",
-  "template": "split-view",
-  "bundler": "vite",
-  "cssPreProcessor": false,
-  "theming": {
-    "customColor": true,
-    "color": "#0a8096",
-    "darkTheme": false,
-    "iconFonts": true,
-    "fillBars": true
-  },
-  "customBuild": false,
-  "pkg": "com.benja.alquilando",
-  "capacitor": {
-    "platforms": [
-      "android"
-    ]
-  }
-}
+VITE_ACCESS_KEY="[key]"
 ```
 
 ## Install Dependencies
@@ -115,8 +71,9 @@ Check out [official cordova-res documentation](https://github.com/ionic-team/cor
 * [Framework7 Icons Reference](https://framework7.io/icons/)
 * [Community Forum](https://forum.framework7.io)
 
-## Support Framework7
+## Support Alquilando.app
 
-Love Framework7? Support project by donating or pledging on:
-- Patreon: https://patreon.com/framework7
-- OpenCollective: https://opencollective.com/framework7
+Love this job? Support project by on:
+- [Alquilando.app web site](https://alqilando.app)
+
+[home]:https://alquilando.app/api 'alquilando API'

@@ -37,8 +37,8 @@
   {:else if $tenants.length}
   <List>
 
-    {#each $tenants as inquilino}
-    <ListItem link="#" title="{ inquilino.name }" after="Edit">
+    {#each $tenants as inquilino, i}
+    <ListItem link="/user/{i}" title="{ inquilino.name }" after="Edit">
 
       <div slot="media">
         <Icon f7="person"/>
