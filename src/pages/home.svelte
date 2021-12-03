@@ -45,12 +45,13 @@
       </div>
       
       <div slot="header">
-        {#if inquilino.rentedProperties.length}
+        { listProperties(inquilino.rentedProperties) }
+        <!-- {#if inquilino.rentedProperties.length}
         {#each inquilino.rentedProperties as {name}, i (inquilino.name +  i)}
           {#if i > 0} {", "}{/if}
           { name }
         {/each}
-        {/if}
+        {/if} -->
       </div>
       
     </ListItem>
@@ -63,41 +64,9 @@
     { $_('global.ultimosMov') }
   </BlockTitle>
 
-  {#if !$lastMov}
-  <Block class="text-align-center">
-    <Preloader size={150} color="#0a8096"></Preloader>
-  </Block>
-  {:else}
-    {#if $lastMov.tenants}
-      <BlockTitle>
-        Ultinmos movimientos de tus inquilnos
-      </BlockTitle>
-      <List>
-        {#each $lastMov.tenants as mov}
-          <ListItem link="#" header="{ mov.tenant.name }" title="{ mov.description }" after="{ mov.date }" footer="{ mov.amount.formated }">
-            <div slot="media">
-              {#if mov.amount.type === 'spend'}
-              <Icon f7="rectangle_stack_fill" class="text-color-red"/>
-              {:else}
-              <Icon f7="rectangle_stack" class="text-color-green"/>
-              {/if}
-            </div>
-          </ListItem>
-        {/each}
-      </List>
-    {/if}
+  <Mov movs='{$lastMov? $lastMov.tenants : null}' title="Ultimos movimientos de tus inquilinos"></Mov>
+  <Mov movs='{$lastMov? $lastMov.my : null}' title="Mis ultimos movimientos" alwaisShow="{false}"></Mov>
 
-    {#if $lastMov.my.length}
-      <BlockTitle>
-        Mis ultimos movimientos
-      </BlockTitle>
-      <List>
-        {#each $lastMov.my as mov}
-          <ListItem link="#" title="{ mov.description }" after="{ mov.date }" footer="{ mov.amount.formated }"></ListItem>
-        {/each}
-      </List>
-    {/if}
-  {/if}
 
   <Block strong>
     <p>This is an example of split view application layout, commonly used on tablets. The main approach of such kind of layout is that you can see different views at the same time.</p>
@@ -152,6 +121,17 @@
     />
   </List>
 </Page>
+<script context="module">
+  export function listProperties(arr) {
+    let result = [];
+    if (arr) {
+      for (const {name} of arr) {
+        result.push(name);
+      }
+    }
+    return result.join(', ');
+  }
+</script>
 <script>
   import {
     f7,
@@ -181,6 +161,7 @@
   import { _ } from '../services/i18n';
   import user, {currentTeam, tenants} from '../store/user';
   import lastMov from '../store/mov';
+  import Mov from '../components/mov.svelte';
 
   let unsubscribe;
 

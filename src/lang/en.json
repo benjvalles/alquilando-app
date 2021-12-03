@@ -14,9 +14,15 @@
     "nuevo_parrafo1": "An email will be sent to you with instructions on how to join your tenant group.",
     "nuevo_parrafo2": "Once he accepts the invitation, he will join your group: "
 	},
+  "infoScreen": {
+    "blockTitle": "Information about ",
+    "parrafo1": "All information and movements "
+  },
 	"global": {
 		"inquilinos": "Tenants",
 		"ultimosMov": "Latest movements",
+    "nombre": "Name",
+    "casas": "Properties",
 		"email": "Email",
     "enviar": "Send",
 		"401": "Authentication is required"

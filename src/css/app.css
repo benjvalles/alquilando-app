@@ -94,3 +94,28 @@
   justify-content: center !important;
 }
 
+.sa {
+  margin-left: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-left));
+  margin-right: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-right));
+}
+
+span.bold {
+  font-weight: 500;
+}
+
+/* .block.grid {
+  background-color: #0a809654;
+  --f7-grid-gap: 0px;
+  --f7-grid-row-gap: 2px;
+}
+.block.grid .col {
+  padding: 5px;
+  background-color: aliceblue;
+}
+@media screen and (min-width: 768px) {
+  .block.grid {
+    max-width: 50%;
+    margin: auto;
+  }
+  
+} */

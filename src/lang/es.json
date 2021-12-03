@@ -14,9 +14,15 @@
     "nuevo_parrafo1": "Se le mandará un correo con las instrucciones para unirse a tu grupo de inquilinos ",
     "nuevo_parrafo2": "Una vez que acepte la invitación se unirá a su grupo: "
 	},
+  "infoScreen": {
+    "blockTitle": "Información sobre ",
+    "parrafo1": "Toda la información y movimientos de "
+  },
 	"global": {
 		"inquilinos": "Inquilinos",
 		"ultimosMov": "Últimos movimientos",
+    "nombre": "Nombre",
+    "casas": "Inmuebles",
 		"email": "Correo electrónico",
     "enviar": "Enviar",
 		"401": "Es necesario autentificarse"
